@@ -14,6 +14,6 @@ jobs:
 
     - name: Build and Publish
       run:  |
-        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD quay.io/gurnbenibm/cm:latest && \
+        docker login quay.io/gurnbenibm/cm:latest && \
         docker build . -t quay.io/gurnbenibm/cm:latest && \
         docker push quay.io/gurnbenibm/cm:latest
