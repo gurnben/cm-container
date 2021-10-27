@@ -1,0 +1,18 @@
+# Copyright Red Hat
+
+name: Go
+
+on:
+  push:
+    branches: [ main, release-* ]
+  schedule:
+    - cron:  '0 0 * * 1'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build and Publish
+      run:  docker build . -t quay.io/gurnbenibm/cm:latest && docker push quay.io/gurnbenibm/cm:latest
